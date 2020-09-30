@@ -11,9 +11,18 @@ class FrontendController extends Controller
     	return view('login');
     }
 
+    //base for Register
+
     public function register() {
     	return view('register');
     }
+
+    /// base for Blogs
+    public function ahrisblog() {
+        return view('blogs');
+    }
+
+    //ar-admin dashboard
 
      public function adminDashboard() {
     	return view('admin-dashboard.home');
@@ -31,7 +40,7 @@ class FrontendController extends Controller
 
     //ar-crashlogs Report
     public function adminCrashLogs() {
-    	return view('admin-dashboard.crashlogs-report');
+    	return view('admin-dashboard.ar-crashlogs-report');
     }
 
     //ar-transaction Overview
@@ -58,5 +67,7 @@ class FrontendController extends Controller
     public function adminWebUpdates() {
     	return view('admin-dashboard.ar-web-updates');
     }
+
+    
 
 }
