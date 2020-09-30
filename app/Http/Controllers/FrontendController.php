@@ -1,0 +1,62 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class FrontendController extends Controller
+{
+    // base for Login
+    public function login() {
+    	return view('login');
+    }
+
+    public function register() {
+    	return view('register');
+    }
+
+     public function adminDashboard() {
+    	return view('admin-dashboard.home');
+    }
+
+    //ar-admin Profile
+    public function adminProfile() {
+    	return view('admin-dashboard.ar-admin-profile');
+    }
+
+    //ar-analytics
+    public function adminAnalytics() {
+    	return view('admin-dashboard.ar-analytics');
+    }
+
+    //ar-crashlogs Report
+    public function adminCrashLogs() {
+    	return view('admin-dashboard.crashlogs-report');
+    }
+
+    //ar-transaction Overview
+    public function adminOverview() {
+    	return view('admin-dashboard.ar-transaction-overview');
+    }
+
+    //ar-user Authentication
+    public function adminUserAuth() {
+    	return view('admin-dashboard.ar-user-authentication');
+    }
+
+    //ar-user User Control
+    public function adminUserControl() {
+    	return view('admin-dashboard.ar-user-control');
+    }
+
+    //ar-web Monitoring
+    public function adminMonitoring() {
+    	return view('admin-dashboard.ar-web-monitoring');
+    }
+
+    // ar-web Updates
+    public function adminWebUpdates() {
+    	return view('admin-dashboard.ar-web-updates');
+    }
+
+}
