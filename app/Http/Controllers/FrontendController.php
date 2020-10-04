@@ -3,18 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class FrontendController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     // base for Login
     public function login() {
-    	return view('login');
+    	return view('auth.login');
+    }
+    public function testinglang() {
+    	return view('auth.reset-password');
+    }
+    public function logout() {
+        Auth::logout();
+        return redirect('/');  
     }
 
     //base for Register
 
     public function register() {
-    	return view('register');
+    	return view('auth.register');
     }
 
     /// base for Blogs
@@ -23,7 +35,6 @@ class FrontendController extends Controller
     }
 
     //ar-admin dashboard
-
      public function adminDashboard() {
     	return view('admin-dashboard.home');
     }
@@ -68,6 +79,78 @@ class FrontendController extends Controller
     	return view('admin-dashboard.ar-web-updates');
     }
 
-    
+    // FOR USERS ROUTING FUNCTION
+
+    public function userProfile() {
+        $user = Auth::user();
+        return view('dashboard.profile', compact('user'));
+    }
+
+    public function userPersonalSettings() {
+        return view('dashboard.personal-settings');
+    }
+
+    public function modalUsername() {
+        return view('dashboard.modal');
+    }
+
+    //  END OF USER ROUTING FUNCTIONS
+
+
+    // COMPANY ROUTING FUNCTIONS
+
+    public function companyDashboard() {
+        return view('company.dashboard');
+    }
+
+    //  END OF COMPANY ROUTING FUNCTIONS
+
+
+
+    // COMPANY-RECORDS ROUTING FUNCTIONS
+
+    public function companyOrganizationSettings() {
+        return view('company.records.organization-settings');
+    }   
+
+    public function companyChartsOfAccounts() {
+        return view('company.records.records-charts-of-accounts');
+    }
+
+    public function companyRecordCustomer() {
+        return view('company.records.records-customer');
+    }
+
+    public function companyRecordProductServices() {
+        return view('company.records.records-products-services');
+    }
+
+    public function companyReocrdSuppliers() {
+        return view('company.records.records-suppliers');
+    }
+
+    public function companyTaxRate() {
+        return view('company.records.records-tax-rate');
+    }
+
+    public function companyRecordUsers() {
+        return view('company.records.records-users');
+    }
+
+
+
+    // END OF COMPANY-RECORDS ROUTING FUNCTIONS
+
+
+    // COMPANY-QUICK ACTIONS ROUTING FUNCTIONS
+
+
+    // END OF COMPANY-QUICK ACTIONS ROUTING FUNCTIONS
+
+
+    // COMPANY-REPORTS ROUTING FUNCTIONS
+
+
+    // END OF COMPANY-REPORTS ROUTING FUNCTIONS
 
 }
